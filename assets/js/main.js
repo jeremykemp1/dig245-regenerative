@@ -19,23 +19,14 @@ function createBar(date) {
     const bar = document.createElement('div');
     bar.className = 'bar';
     bar.style.backgroundColor = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
-    
-    // Create a span element to display the date
-    const dateText = document.createElement('span');
-    dateText.className = 'date-text';
-    dateText.innerText = formatDate(date);
-    
-    // Append the date text to the bar
-    bar.appendChild(dateText);
-    
     bars.appendChild(bar);
 }
 
-function formatDate(date) {
+function dateToRGB(date) {
     const day = date.getDate();
     const month = date.getMonth() + 1;
     const year = date.getFullYear() % 100;
-    return `${month}/${day}/${year}`;
+    return [month, day, year];
 }
 
 container.addEventListener('scroll', () => {
