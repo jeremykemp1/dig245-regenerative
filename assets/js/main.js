@@ -1,18 +1,26 @@
 const container = document.getElementById('container');
 const bars = document.getElementById('bars');
 
-const barHeight = 50;
+const today = new Date();
+const barCount = 500;
+const barHeight = 1;
 
-function createBars() {
-    const today = new Date();
-    const visibleBars = Math.ceil(container.clientHeight / barHeight) + 10; // Load additional bars
+for (let i = 0; i < barCount; i++) {
+    const date = new Date(today);
+    date.setDate(today.getDate() + i);
+    createBar(date);
+}
 
-    for (let i = 0; i < visibleBars; i++) {
+container.addEventListener('scroll', () => {
+    const scrollPosition = container.scrollTop;
+    const visibleBars = Math.ceil(scrollPosition / barHeight);
+
+    for (let i = barCount; i < visibleBars + barCount; i++) {
         const date = new Date(today);
         date.setDate(today.getDate() + i);
         createBar(date);
     }
-}
+});
 
 function createBar(date) {
     const rgb = dateToRGB(date);
@@ -28,11 +36,3 @@ function dateToRGB(date) {
     const year = date.getFullYear() % 100;
     return [month, day, year];
 }
-
-container.addEventListener('scroll', () => {
-    if (container.scrollTop + container.clientHeight >= bars.clientHeight) {
-        createBars();
-    }
-});
-
-createBars();

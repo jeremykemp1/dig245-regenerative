@@ -4,6 +4,13 @@ body {
     overflow: hidden;
 }
 
+header {
+    color: black;
+    text-align: center;
+    padding: 20px;
+    font-family: 'Earth Orbiter', sans-serif;
+}
+
 #container {
     width: 100%;
     height: 100vh; /* Set the container height to the viewport height */
