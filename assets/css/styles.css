@@ -5,7 +5,9 @@ body {
 }
 
 #container {
+    height: 100vh; /* Set the container height to the viewport height */
     position: relative;
+    overflow-y: scroll;
 }
 
 .bar {
