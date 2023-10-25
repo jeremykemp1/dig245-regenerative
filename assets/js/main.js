@@ -28,7 +28,6 @@ function createBar(date) {
     const bar = document.createElement('div');
     bar.className = 'bar';
     bar.style.backgroundColor = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
-    bar.setAttribute('data-rgb', `RGB(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`);
     bars.appendChild(bar);
 }
 // Create Hex Bar
