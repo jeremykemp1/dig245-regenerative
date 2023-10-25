@@ -23,6 +23,10 @@ header {
     height: 5px;
 }
 
+.bar:hover::after{
+    content: attr(data-rgb);
+}
+
 #bars {
     width: 100%;
 }
